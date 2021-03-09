@@ -1,0 +1,90 @@
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px;
+    color: black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form select, form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+
+    &.error {
+        border: 1px solid red;
+    }
+}
+
+form .error-feedback {
+    margin-top: 5px;
+    font-size: 14px;
+    color: red;
+    text-align: left;
+}
+
+form fieldset {
+    border-color: rgba(0,0,0,0.15);
+    border-radius: 10px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+
+    &:first-child label {
+        margin-top: 0;
+    }
+}
+
+form label {
+    display: flex;
+    font-weight: 700;
+    margin: 20px 0 5px 0;
+    padding-bottom: 0;
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    &.error {
+        // color: red;
+    }
+}
+
+form button {
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    background: #00b894;
+    color: white;
+    border: none;
+    border: 1px solid #00886d;
+}
+
+form fieldset + fieldset {
+    margin-top: 20px;
+}
+
+a {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+    color: darkgrey;
+}
+a:visited {
+    color: darkgrey;
+}

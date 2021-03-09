@@ -1,0 +1,57 @@
+.App {
+  text-align: center;
+}
+
+main {
+  background-color: #282c34;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.App-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  overflow: hidden;
+
+  h1 {
+    font-size: 80px;
+    text-transform: capitalize;
+    font-family: 'Titillium Web', sans-serif;
+    position: absolute;
+    bottom: 50px;
+    right: 0px;
+    left: 0;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    line-height: 1.2;
+
+    background: rgba(0,0,0,0.85);
+    padding: 20px 40px;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+h1, p {
+  text-align: center;
+  width: 100%;
+  max-width: 650px;
+}
