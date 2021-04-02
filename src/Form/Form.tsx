@@ -2,36 +2,13 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import './Form.scss';
-
-export enum CATEGORY_LIST {
-  ANIMALS = 'ANIMALS',
-  ARCHITECTURE = 'ARCHITECTURE',
-  NATURE = 'NATURE',
-  PEOPLE = 'PEOPLE',
-  TECH = 'TECH'
-};
-
-export enum FILTERS {
-  NONE = 'NONE',
-  GRAYSCALE = 'GRAYSCALE',
-  SEPIA = 'SEPIA'
-};
-
-export interface IForm {
-  valueChanges: Function;
-}
-
-export interface ImageGeneratorRequest {
-  label: string;
-  category: CATEGORY_LIST;
-  filter: FILTERS;
-}
+import { IForm, ImageGeneratorRequest, CATEGORY_LIST, FILTERS } from "../const";
 
 function Form(props: IForm) {
   const { valueChanges } = props;
   return (
     <div className="Form">
-      <h1>Awesome Image Generator</h1>
+      <h1 data-cy="title">Awesome Image<br/><span>Generator</span></h1>
 
       <Formik
         initialValues={
@@ -55,6 +32,7 @@ function Form(props: IForm) {
               <fieldset>
                 <label htmlFor="label" style={{ display: "block" }} className={errors.label && touched.label ? "error" : ""}>Label</label>
                 <input id="label"
+                  data-cy="label-input"
                   placeholder="Enter your text"
                   type="text"
                   value={values.label}
@@ -63,7 +41,7 @@ function Form(props: IForm) {
                   className={errors.label && touched.label ? "text-input error" : "text-input"}
                 />
                 {errors.label && touched.label && (
-                  <div className="error-feedback">{errors.label}</div>
+                  <div className="error-feedback" data-cy="label-input-error">{errors.label}</div>
                 )}
               </fieldset>
 
@@ -71,6 +49,7 @@ function Form(props: IForm) {
                 <label htmlFor="category" style={{ display: "block" }} className={errors.category && touched.category ? "error" : ""}>Category</label>
                 <select id="category"
                   placeholder="Choose category"
+                  data-cy="category-select"
                   value={values.category}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -80,12 +59,13 @@ function Form(props: IForm) {
                   {Object.values(CATEGORY_LIST).map(category => <option>{category}</option>)}
                 </select>
                 {errors.category && touched.category && (
-                  <div className="error-feedback">{errors.category}</div>
+                  <div className="error-feedback" data-cy="category-select-error">{errors.category}</div>
                 )}
 
                 <label htmlFor="filter" style={{ display: "block" }} className={errors.filter && touched.filter ? "error" : ""}>Filter</label>
                 <select id="filter"
                   placeholder="Choose filter"
+                  data-cy="filter-select"
                   value={values.filter}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -95,7 +75,7 @@ function Form(props: IForm) {
                   {Object.values(FILTERS).map(filter => <option>{filter}</option>)}
                 </select>
                 {errors.filter && touched.filter && (
-                  <div className="error-feedback">{errors.filter}</div>
+                  <div className="error-feedback" data-cy="filter-select-error">{errors.filter}</div>
                 )}
               </fieldset>
 
