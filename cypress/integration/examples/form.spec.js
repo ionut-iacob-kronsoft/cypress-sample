@@ -90,9 +90,7 @@ describe('Form', () => {
     })
 
     it('Resets the form', () => {
-        cy.get('[data-cy=label-input]').type('Title');
-        cy.get('[data-cy=category-select]').select(CATEGORY_LIST.ANIMALS);
-        cy.get('[data-cy=filter-select]').select(FILTERS.NONE);
+        cy.prefillForm();
         cy.get('button').contains('Reset').click();
 
         cy.get('[data-cy=label-input]').should('have.value', '');
@@ -100,10 +98,8 @@ describe('Form', () => {
         cy.get('[data-cy=filter-select]').should('have.value', null);
     })
 
-    it('Submits the form', () => {
-        cy.get('[data-cy=label-input]').type('Title');
-        cy.get('[data-cy=category-select]').select(CATEGORY_LIST.ANIMALS);
-        cy.get('[data-cy=filter-select]').select(FILTERS.NONE);
+    it('Generates an image', () => {
+        cy.prefillForm();
         cy.get('button').contains('Generate').click();
         cy.get('.App-image').should('exist');
     })

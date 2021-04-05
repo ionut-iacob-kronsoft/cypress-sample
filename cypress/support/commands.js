@@ -23,3 +23,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+import { CATEGORY_LIST, FILTERS } from '../../src/const';
+
+Cypress.Commands.add('prefillForm', () => {
+    cy.get('[data-cy=label-input]').type('Title');
+    cy.get('[data-cy=category-select]').select(CATEGORY_LIST.ANIMALS);
+    cy.get('[data-cy=filter-select]').select(FILTERS.NONE);
+});
